@@ -14,13 +14,11 @@ JogDial supports Chrome, Safari, FireFox, Internet Explorer 7+ and most of moder
 * AMD Support (RequreJS)
 
 ##Demo###
-*****
 [Click here](http://www.ohsean.net/plugins/jogdial/)
 
 ##Usage##
 
 ###Basics###
-*****
 Here is a basic example of JogDial.js initialization. This will start the JogDial in debug mode.
 
 You must create the target element for the JogDial and setup the width and height property before the code start.
@@ -34,7 +32,6 @@ You can change the setting by passing an options (`array`) in second argument.
     var dial = JogDial(el, options);
     
 ###Styling###
-*****
 The easiest way to style the JogDial is adding background image to your target element and knob element created from JogDial script.
 
 JodDial always return the knob id name append to the target element name you've created.
@@ -54,7 +51,6 @@ You can add any additional elements inside of your target element and it won't i
 
 
 ###Options###
-*****
 Here is a list of options can be used on JogDial.
 
 Options              | Descriptions                                                     | Default         
@@ -69,7 +65,6 @@ minDegree `int`      | Set the minimum degree of wheel rotation                 
 maxDegree `int`      | Set the maximum degree of wheel rotation                         |null (infinite) |
 
 ###Events###
-*****
 Events can be added or removed with the on and off methods and those are chainable like a jQuery.
     
     JogDial(el, {debug: true})
