@@ -1,23 +1,23 @@
 #JogDial.js#
 
 ##A JavaScript plugin for jog dial controls.##
-*****
 JogDial is a simple JavaScript plugin that help you to create dial style controller easily on the webpage.
 
 ##Supported browsers and device##
-*****
 JogDial supports Chrome, Safari, FireFox, Internet Explorer 7+ and most of modern browsers include mobile device.
 
 ##Features##
-*****
 * Does not require any other JavaScript library like jQuery.
 * Cross-browser support (IE7+)
 * Multi-touch support (you can control multiple number of JogDial elements at once in touch screen) 
 * DOM Events
 * AMD Support (RequreJS)
 
-##Usage##
+##Demo###
 *****
+[Click here](http://www.ohsean.net/plugins/jogdial/)
+
+##Usage##
 
 ###Basics###
 *****
@@ -94,5 +94,4 @@ You can change the angle of JogDial element by passing the number value to 'angl
     
     
 ##Copyrights##
-*****
 Licensed under the MIT license 
