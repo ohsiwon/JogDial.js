@@ -240,6 +240,9 @@
           break;
       }
       return this;
+    },
+    angle: function angle(data) {
+      angleTo(this, JogDial.utils.convertClockToUnit(data));
     }
   };
 
