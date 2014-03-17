@@ -465,10 +465,15 @@
   */  
   function angleTo(self, radian) {
     radian *= JogDial.ToRad;
-    self.knob.style.left = Math.cos(radian) * self.radius + self.center.x + 'px';
-    self.knob.style.top = Math.sin(radian) * self.radius + self.center.y + 'px';
-    
-    
+
+    var _x =  Math.cos(radian) * self.radius + self.center.x,
+        _y =  Math.sin(radian) * self.radius + self.center.y,
+        quadrant = JogDial.utils.getQuadrant(_x, _y),
+        degree = JogDial.utils.convertUnitToClock(radian);
+    self.info.now.rotation = JogDial.utils.getRotation(self, quadrant  , degree);        
+    self.knob.style.left = _x + 'px';
+    self.knob.style.top = _y + 'px';
+
     if(self.knob.rotation == undefined){
        // Update JogDial data information
         JogDial.utils.extend(self.knob, {
