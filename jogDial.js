@@ -470,7 +470,6 @@
         _y =  Math.sin(radian) * self.radius + self.center.y,
         quadrant = JogDial.utils.getQuadrant(_x, _y),
         degree = JogDial.utils.convertUnitToClock(radian);
-    self.info.now.rotation = JogDial.utils.getRotation(self, quadrant  , degree);        
     self.knob.style.left = _x + 'px';
     self.knob.style.top = _y + 'px';
 
