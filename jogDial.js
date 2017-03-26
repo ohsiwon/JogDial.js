@@ -233,7 +233,7 @@
     trigger: function triggerEvent(type, data) {
       switch (type){
         case 'angle':
-          angleTo(this, data);
+          angleTo(this, JogDial.utils.convertClockToUnit(data), data);
           break;
         default:
           window.alert('Please Check your code:\njogDial does not have triggering event [' + type + ']');
@@ -242,7 +242,7 @@
       return this;
     },
     angle: function angle(data) {
-      angleTo(this, JogDial.utils.convertClockToUnit(data));
+      angleTo(this, JogDial.utils.convertClockToUnit(data), data);
     }
   };
 
@@ -463,9 +463,8 @@
   * @param  {HTMLElement}    self
   * @param  {String}         radian
   */  
-  function angleTo(self, radian) {
+  function angleTo(self, radian, triggeredDegree) {
     radian *= JogDial.ToRad;
-
     var _x =  Math.cos(radian) * self.radius + self.center.x,
         _y =  Math.sin(radian) * self.radius + self.center.y,
         quadrant = JogDial.utils.getQuadrant(_x, _y),
@@ -474,11 +473,21 @@
     self.knob.style.top = _y + 'px';
 
     if(self.knob.rotation == undefined){
-       // Update JogDial data information
-        JogDial.utils.extend(self.knob, {
-          rotation: self.opt.degreeStartAt,
-          degree: JogDial.utils.convertUnitToClock(radian)
-        });
+     // Update JogDial data information
+      JogDial.utils.extend(self.knob, {
+        rotation: self.opt.degreeStartAt,
+        degree: JogDial.utils.convertUnitToClock(radian)
+      });
+    }
+
+    if(triggeredDegree){
+      // Update JogDial data information
+      self.info.now = JogDial.utils.extend({},{rotation:triggeredDegree, quadrant: quadrant});
+      self.info.old = JogDial.utils.extend({},{rotation: triggeredDegree%360, quadrant: quadrant});     
+      JogDial.utils.extend(self.knob, {
+        rotation: triggeredDegree,
+        degree: triggeredDegree%360
+      });
     }
 
     // Trigger move event
