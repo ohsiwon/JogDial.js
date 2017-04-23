@@ -232,7 +232,7 @@
     },
     trigger: function triggerEvent(type, data) {
       switch (type){
-        case 'angle':
+        case 'angle':        
           angleTo(this, JogDial.utils.convertClockToUnit(data), data);
           break;
         default:
@@ -242,7 +242,8 @@
       return this;
     },
     angle: function angle(data) {
-      angleTo(this, JogDial.utils.convertClockToUnit(data), data);
+      var deg = (data > this.opt.maxDegree) ? this.opt.maxDegree : data;
+      angleTo(this, JogDial.utils.convertClockToUnit(deg), deg);
     }
   };
 
