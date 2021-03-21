@@ -34,7 +34,7 @@ You can change the setting by passing an options (`array`) in second argument.
 ### Styling
 The easiest way to style the JogDial is adding background image to your target element and knob element created from JogDial script.
 
-JodDial always return the knob id name append to the target element name you've created.
+If the base target element has its id attribute set, JogDial sets the id of the knob and wheel with an appended "_knob" and "_wheel" suffix respectively.
 
 For an example, if you named the tag element id as __"dial"__, then knob id will be __"dial_knob"__.
 
@@ -44,9 +44,19 @@ For an example, if you named the tag element id as __"dial"__, then knob id will
     }
     
     #dial_knob {
-        // This is your knob style
+        background: url('./knob.png');
     }
-    
+
+Alternatively, you can use the class attribute which is set to the fixed values "jog_dial_wheel" and "jog_dial_knob" on the created elements:
+
+    .jog_dial_knob {
+        background: url('./knob.png');
+    }
+
+    .jog_dial_wheel {
+        // This is your wheel style
+    }
+
 You can add any additional elements inside of your target element and it won't interfere the JogDial function.
 
 
