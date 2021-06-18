@@ -265,7 +265,7 @@
     * {HTMLElement}  JogDial.Instance.wheel
     */
     var item   = {},
-    BId      = self.base.getAttribute("id"),
+    BId      = self.base.id || "",
     BW       = self.base.clientWidth,
     BH       = self.base.clientHeight,
     opt     = self.opt,
@@ -295,12 +295,18 @@
     WRad = W.clientWidth/2;
 
     //Set knob properties
-    K.setAttribute('id', BId + '_knob');
+    if (BId) {
+      K.setAttribute('id', BId + '_knob');
+    }
+    K.className = 'jog_dial_knob';
     KS.margin = -KRad + 'px 0 0 ' + -KRad + 'px';
     KS.zIndex = opt.zIndex;
 
     //Set wheel properties
-    W.setAttribute('id', BId + '_wheel');
+    if (BId) {
+      W.setAttribute('id', BId + '_wheel');
+    }
+    W.className = 'jog_dial_wheel';
 
     WMargnLT = (BW-W.clientWidth)/2;
     WMargnTP = (BH-W.clientHeight)/2;
